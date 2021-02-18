@@ -21,7 +21,9 @@ public class LinkDev {
 		return NAME;
 	}
 
+	/*Gets the nodes linked*/
 	public List<Node> getNodesList() {
 		return nodesList;
-	}	 
+	}	
+	
 }

@@ -12,6 +12,7 @@ public class Node {
 	private final String NAME;
 	private List<Port> portsList = new ArrayList<Port>();
 	private List<Card> cardList = new ArrayList<Card>();  
+	private List<Integer> portsConnecteds;
 	
 	/*Start a Node with two ports just to simulate*/
 	public Node() {
@@ -24,10 +25,12 @@ public class Node {
 		return NAME;
 	}
 
+	/*Gets all available ports in a node*/
 	public List<Port> getPortsList() {
 		return portsList;
 	}
 
+	/*Gets all available cards in a node*/
 	public List<Card> getCardList() {
 		return cardList;
 	}
@@ -54,7 +57,18 @@ public class Node {
 		}		
 	}
 	
-	public void getPortsConnections() {
+	/*Gets all connected ports in a node*/
+	public List<Integer> getPortsConnected() {
 		
-	}
+		this.portsConnecteds = new ArrayList<Integer>();
+		
+		for (Port port : this.portsList) {
+			
+			if(port.isConnectedOrDisconnected()) {
+				this.portsConnecteds.add(port.getPortNumber());
+			}
+		}	
+		
+		return portsConnecteds;
+	}	
 }
